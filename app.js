@@ -28,8 +28,8 @@ new Vue ({
       this.playerHpBar.backgroundColor = ''
     },
     attack: function () {
-      playerDamage = Math.round(Math.random() * 13)
-      monsterDamage = Math.round(Math.random() * 10)
+      var playerDamage = Math.round(Math.random() * 13)
+      var monsterDamage = Math.round(Math.random() * 10)
       this.playerHP -= monsterDamage
       this.monsterHP -= playerDamage
       this.gameLog.push("YOU HIT MONSTER FOR " + playerDamage + " DAMAGE!")
@@ -41,8 +41,8 @@ new Vue ({
       this.gameOver()
     },
     specialAttack: function () {
-      playerDamage = Math.round(Math.random() * 15)
-      monsterDamage = Math.round(Math.random() * 10)
+      var playerDamage = Math.round(Math.random() * 15)
+      var monsterDamage = Math.round(Math.random() * 10)
       this.playerHP -= monsterDamage
       this.monsterHP -= playerDamage
       this.gameLog.push("YOU HIT MONSTER FOR " + playerDamage + " DAMAGE!")
@@ -54,9 +54,9 @@ new Vue ({
       this.gameOver()
     },
     heal: function () {
-      playerHeal = Math.round(Math.random() * 10)
-      monsterDamage = Math.round(Math.random() * 10)
-      healTotal = playerHeal - monsterDamage
+      var playerHeal = Math.round(Math.random() * 10)
+      var monsterDamage = Math.round(Math.random() * 10)
+      var healTotal = playerHeal - monsterDamage
       this.playerHP += playerHeal
       if ( this.playerHP > 100 ) {  this.playerHP = 100 }
       this.playerHP -= monsterDamage
