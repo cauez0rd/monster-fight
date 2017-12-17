@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="game-log">
+    <div class="game-log" v-if="gameLog.length > 0">
       <ul>
         <li v-for="entry in gameLog"> <p> {{ entry }} </p></li>
       </ul>
