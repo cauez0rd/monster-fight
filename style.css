@@ -1,0 +1,147 @@
+.title {
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center
+}
+
+.status-display {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    margin: 0 auto
+}
+
+/* Player status */
+.player {
+    float: left;
+    width: 50%;
+    padding-bottom: 30px;
+}
+
+.player-hp {
+    float: left;
+    height: 50px;
+    transition: width 500ms;
+    background-color: green;
+    /* color: white; */
+    font-size: 1.5em;
+    text-align: center;
+}
+
+/***/
+
+/* Monster status */
+.monster {
+    float: left;
+    text-align: right;
+    width: 50%;
+    padding-bottom: 30px
+}
+
+.monster-hp {
+    float: right;
+    height: 50px;
+    transition: width 500ms;
+    background-color: green;
+    /* color: white; */
+    font-size: 1.5em;
+    text-align: center;
+}
+/***/
+
+/* Game menu and buttons */
+.game-menu {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 5em;
+    margin: 0 auto;
+    border: 2px solid green;
+    box-shadow: 1px 2px 3px darkgrey;
+}
+
+.start-button {
+    font-size: 25px;
+    background-color: lightgreen;
+    border: 2px solid green;
+    padding: 20px;
+    margin: 17px;
+    line-height: 0
+}
+
+.start-button:hover {
+  background-color: greenyellow;
+}
+
+.attack-button {
+    font-size: 25px;
+    background-color: salmon;
+    border: 2px solid red;
+    padding: 20px;
+    margin: 17px;
+    line-height: 0
+}
+
+.attack-button:hover {
+  background-color: rgb(216, 22, 22);
+}
+
+.special-attack-button {
+    font-size: 25px;
+    background-color: rgb(235, 215, 39);
+    border: 2px solid rgb(119, 119, 26);
+    padding: 20px;
+    margin: 17px;
+    line-height: 0
+}
+
+.special-attack-button:hover{
+  background-color: rgb(255, 230, 0);
+}
+
+.heal-button {
+    font-size: 25px;
+    background-color: lightgreen;
+    border: 2px solid green;
+    padding: 20px;
+    margin: 17px;
+    line-height: 0
+}
+
+.heal-button:hover {
+  background-color: rgb(39, 221, 39);
+}
+
+.give-up-button {
+    font-size: 25px;
+    border: 2px solid grey;
+    padding: 20px;
+    margin: 17px;
+    line-height: 0
+}
+
+.give-up-button:hover {
+  background-color: grey;
+}
+
+.game-log {
+  display: flex;
+  justify-content: center;
+  font-size: 22px;
+  width: 50%;
+  margin: 30px auto;
+  border: 2px solid green;
+  box-shadow: 1px 2px 3px darkgrey;
+}
+
+.game-log li {
+  list-style: none;
+}
+
+.game-log li:nth-child(odd) {
+  background-color: aqua;
+}
+
+.game-log li:nth-child(even) {
+  background-color: salmon;
+}
