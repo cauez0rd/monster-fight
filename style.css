@@ -138,10 +138,10 @@
   list-style: none;
 }
 
-.game-log li:nth-child(odd) {
+.game-log li:nth-child(even) {
   background-color: aqua;
 }
 
-.game-log li:nth-child(even) {
+.game-log li:nth-child(odd) {
   background-color: salmon;
 }
