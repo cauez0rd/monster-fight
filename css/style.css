@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 80px 150px 50px auto;
+  justify-content: center;
+  align-content: center;
+  grid-template-areas: 
+    ". . t t t t t t t t . ."
+    ". . p p p p m m m m . ."
+    "b b b b b b b b b b b b"
+    ". . l l l l l l l l . .";
+
+}
+
+.container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  grid-area: t;
+  font-size: 1.2em;
+}
+
+.player-status {
+  grid-area: p;
+  flex-direction: column;
+}
+
+.player-name {
+  padding-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.player-healthbar {
+  width: 100%;
+  height: 50px;
+  background-color: lightgray;
+  border: 1px black solid;
+}
+
+.player-currenthealth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background-color: green;
+  font-size: 1.5em;
+  color: white;
+  transition: width 500ms;
+}
+
+.monster-status {
+  grid-area: m;
+  flex-direction: column;
+}
+
+.monster-name {
+  padding-bottom: 10px;
+  font-size: 1.3em;
+}
+.monster-healthbar {
+  width: 100%;
+  height: 50px;
+  background-color: lightgray;
+  border: 1px black solid;
+}
+
+.monster-currenthealth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background-color: green;
+  font-size: 1.5em;
+  color: white;
+  transition: width 500ms;
+}
+
+.game-menu {
+  grid-area: b;    
+}
+
+.game-menu > div > button {
+  font-size: 1.1em;
+  margin: 0 10px;
+  padding: 10px;
+  box-shadow: 1px 2px 3px darkgrey;
+}
+
+.start-button {
+  background-color: lightgreen;
+  border: 2px solid green;
+}
+
+.start-button:hover {
+  background-color: greenyellow;
+  
+}
+
+.attack-button {
+  background-color: salmon;
+  border: 2px solid red;
+}
+
+.attack-button:hover {
+  background-color: rgb(216, 22, 22);
+}
+
+.spattack-button {
+    background-color: rgb(235, 215, 39);
+    border: 2px solid rgb(119, 119, 26);
+}
+
+.spattack-button:hover{
+  background-color: rgb(255, 230, 0);
+}
+
+.heal-button {
+  background-color: lightgreen;
+  border: 2px solid green;
+}
+
+.heal-button:hover {
+  background-color: rgb(39, 221, 39);
+}
+
+.flee-button {
+  border: 2px solid grey;
+}
+
+.flee-button:hover {
+  background-color: grey;
+}
+
+
+.game-log {
+  grid-area: l;
+  font-size: 1.2em;
+  border: 2px solid green;
+  box-shadow: 1px 2px 3px darkgrey;
+}
+
+.game-log li {
+  list-style: none;
+  text-align: center;
+}
+
+.game-log li:nth-child(even) {
+  background-color: aqua;
+  margin-bottom: 10px;
+}
+
+.game-log li:nth-child(odd) {
+  background-color: salmon;
+  margin-top: 10px;
+}

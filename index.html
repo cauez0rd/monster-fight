@@ -5,51 +5,67 @@
   <!-- Importing vuejs -->
   <script src="https://npmcdn.com/vue/dist/vue.js"></script>
 
-  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Monster Fight!</title>
+
+  <!-- Importing css -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Monster Fight! 2.0</title>
 </head>
 
 <body>
   <div id="app">
-    <div class="title">
-      <h1>Monster Fight!</h1>
-    </div>
-
-    <div class="status-display">
-      <div class="player">
-        <h1>You</h1>
-        <div class="player-hp" :style="playerHpBar"> {{ playerHP }} </div>
+    <div class="container">
+      <div class="title">
+        <h1>Monster fight!</h1>
       </div>
 
-      <div class="monster">
-        <h1>Monster</h1>
-        <div class="monster-hp" :style="monsterHpBar"> {{ monsterHP }} </div>
+      <!-- player status -->
+      <div class="player-status">
+        <div class="player-name">
+          <h2>Player</h2>
+        </div>
+        <div class="player-healthbar">
+          <div class="player-currenthealth" :style="playerHpBar"> {{ playerHP }} </div>
+        </div>
       </div>
-    </div>
 
-    <div class="game-menu">
-      <div v-if="gameNotStarted">
-        <button class="start-button" @click="startGame()">START NEW GAME</button>
+      <!-- monster status -->
+      <div class="monster-status">
+        <div class="monster-name">
+          <h2>Monster</h2>
+        </div>
+        <div class="monster-healthbar">
+          <div class="monster-currenthealth" :style="monsterHpBar"> {{ monsterHP }} </div>
+        </div>
       </div>
-      <div v-else>
-        <button class="attack-button" @click="attack()">ATTACK</button>
-        <button class="special-attack-button" @click="specialAttack()">SPECIAL ATTACK</button>
-        <button class="heal-button" @click="heal()">HEAL</button>
-        <button class="give-up-button" @click="gameNotStarted = !gameNotStarted">GIVE UP</button>
-      </div>
-    </div>
 
-    <div class="game-log" v-if="gameLog.length > 0">
-      <ul>
-        <li v-for="entry in gameLog"> <p> {{ entry }} </p></li>
-      </ul>
+      <div class="game-menu">
+        <div v-if="gameNotStarted">
+          <button class="start-button" @click="startGame()">START NEW GAME</button>
+        </div>
+        <div v-else>
+          <button class="attack-button" @click="attack()">ATTACK</button>
+          <button class="spattack-button" @click="spAttack()">SP. ATTACK</button>
+          <button class="heal-button" @click="heal()">HEAL</button>
+          <button class="flee-button" @click="gameNotStarted = !gameNotStarted">FLEE</button>
+        </div>
+      </div>
+
+      <div class="game-log" v-if="gameLog.length > 0">
+        <ul>
+          <li v-for="entry in gameLog">
+            <p> {{ entry }} </p>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
+
 </body>
 
-<script src="app.js"></script>
+<script src="js/script.js"></script>
 
 </html>
