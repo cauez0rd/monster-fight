@@ -29,42 +29,15 @@ new Vue({
       this.playerHpBar.backgroundColor = ''
     },
     attack: function () {
-      var playerDamage = Math.round(Math.random() * 13)
-      var monsterDamage = Math.round(Math.random() * 10)
-      this.playerHP -= monsterDamage
-      this.monsterHP -= playerDamage
-      this.gameLog.unshift("YOU HIT MONSTER FOR " + playerDamage + " DAMAGE!")
-      this.gameLog.unshift("MONSTER HITS YOU FOR " + monsterDamage + " DAMAGE!")
-      this.monsterHpBar.width = this.monsterHP + "%"
-      if (this.monsterHP <= 30) { this.monsterHpBar.backgroundColor = 'red' }
-      this.playerHpBar.width = this.playerHP + "%"
-      if (this.playerHP <= 30) { this.playerHpBar.backgroundColor = 'red' }
+      this.dealDamage(13, 10)
       this.gameOver()
     },
     spAttack: function () {
-      var playerDamage = Math.round(Math.random() * 15)
-      var monsterDamage = Math.round(Math.random() * 10)
-      this.playerHP -= monsterDamage
-      this.monsterHP -= playerDamage
-      this.gameLog.unshift("YOU HIT MONSTER FOR " + playerDamage + " DAMAGE!")
-      this.gameLog.unshift("MONSTER HITS YOU FOR " + monsterDamage + " DAMAGE!")
-      this.monsterHpBar.width = this.monsterHP + "%"
-      if (this.monsterHP <= 30) { this.monsterHpBar.backgroundColor = 'red' }
-      this.playerHpBar.width = this.playerHP + "%"
-      if (this.playerHP <= 30) { this.playerHpBar.backgroundColor = 'red' }
+      this.dealDamage(15, 10)
       this.gameOver()
     },
     heal: function () {
-      var playerHeal = Math.round(Math.random() * 10)
-      var monsterDamage = Math.round(Math.random() * 10)
-      var healTotal = playerHeal - monsterDamage
-      this.playerHP += playerHeal
-      if (this.playerHP > 100) { this.playerHP = 100 }
-      this.playerHP -= monsterDamage
-      this.gameLog.unshift("YOU HEALED YOURSELF FOR " + playerHeal + " HP!")
-      this.gameLog.unshift("MONSTER HITS YOU FOR " + monsterDamage + " DAMAGE!")
-      this.playerHpBar.width = this.playerHP + "%"
-      if (this.playerHP <= 30) { this.playerHpBar.backgroundColor = 'red' }
+      this.healSelf(10, 10)
       this.gameOver()
     },
     gameOver: function () {
@@ -75,6 +48,30 @@ new Vue({
         alert("You beat the monster! Congratulations!")
         this.gameNotStarted = !this.gameNotStarted
       }
+    },
+    dealDamage: function (player, monster) {
+      var playerDamage = Math.round(Math.random() * player)
+      var monsterDamage = Math.round(Math.random() * monster)
+      this.playerHP -= monsterDamage
+      this.monsterHP -= playerDamage
+      this.gameLog.unshift("YOU HIT MONSTER FOR " + playerDamage + " DAMAGE!")
+      this.gameLog.unshift("MONSTER HITS YOU FOR " + monsterDamage + " DAMAGE!")
+      this.monsterHpBar.width = this.monsterHP + "%"
+      if (this.monsterHP <= 30) { this.monsterHpBar.backgroundColor = 'red' }
+      this.playerHpBar.width = this.playerHP + "%"
+      if (this.playerHP <= 30) { this.playerHpBar.backgroundColor = 'red' }
+    },
+    healSelf: function (heal, monster) {
+      var playerHeal = Math.round(Math.random() * heal)
+      var monsterDamage = Math.round(Math.random() * monster)
+      var healTotal = playerHeal - monsterDamage
+      this.playerHP += playerHeal
+      if (this.playerHP > 100) { this.playerHP = 100 }
+      this.playerHP -= monsterDamage
+      this.gameLog.unshift("YOU HEALED YOURSELF FOR " + playerHeal + " HP!")
+      this.gameLog.unshift("MONSTER HITS YOU FOR " + monsterDamage + " DAMAGE!")
+      this.playerHpBar.width = this.playerHP + "%"
+      if (this.playerHP <= 30) { this.playerHpBar.backgroundColor = 'red' }
     }
   }
 })
